@@ -1,0 +1,24 @@
+{
+  "asset_version": "20261005",
+  "cdn": "https://assets.wowforevermap.com",
+  "tile_size": 512,
+  "logical_max_zoom": 7,
+  "azeroth_cells": {
+    "left": 0,
+    "top": 0,
+    "right": 72,
+    "bottom": 47
+  },
+  "layers": {
+    "terrain": {
+      "dir": "world",
+      "min_zoom": 3,
+      "max_native_zoom": 7
+    },
+    "worldmap": {
+      "dir": "worldmap",
+      "min_zoom": 2,
+      "max_native_zoom": 5
+    }
+  }
+}

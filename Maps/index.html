@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WoW Forever Map - Local</title>
+<style>
+  html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#090b0d;color:#e9dfc5;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  #map{position:fixed;inset:0;overflow:hidden;cursor:grab;background:#07090b}
+  #map.dragging{cursor:grabbing}
+  .tile{position:absolute;display:block;user-select:none;pointer-events:none;image-rendering:auto}
+  #toolbar{position:fixed;z-index:50;left:14px;top:14px;display:flex;gap:8px;align-items:center;
+    background:rgba(18,20,23,.92);border:1px solid #4f493c;border-radius:9px;padding:8px 10px;
+    box-shadow:0 4px 20px rgba(0,0,0,.45)}
+  button{background:#25282c;color:#eee4cc;border:1px solid #5a5344;border-radius:6px;padding:7px 10px;
+    cursor:pointer;font-weight:650}
+  button:hover{border-color:#c6a15b}
+  button.active{background:#46391f;border-color:#c6a15b;color:#ffe5a8}
+  #status{font-size:12px;color:#bdb5a5;min-width:145px}
+  #notice{position:fixed;z-index:40;left:14px;bottom:14px;max-width:520px;background:rgba(18,20,23,.9);
+    border:1px solid #4f493c;border-radius:8px;padding:9px 11px;font-size:12px;color:#cfc7b7}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div id="toolbar">
+  <button id="terrain" class="active">Terrain</button>
+  <button id="worldmap">Carte du monde</button>
+  <button id="minus">−</button>
+  <button id="plus">+</button>
+  <div id="status"></div>
+</div>
+<div id="notice">Tuiles extraites du HAR. Si une zone est noire, lance <b>download_full_map.bat</b> une fois pour compléter la carte.</div>
+<script>
+(() => {
+  const TILE = 512, LOGICAL_MAX = 7;
+  const cells = {left:0, top:0, right:72, bottom:47};
+  const layers = {
+    terrain: {dir:"world", min:3, nativeMax:7},
+    worldmap:{dir:"worldmap", min:2, nativeMax:5}
+  };
+  let layerName="terrain";
+  let zoom=3;
+  // Center expressed in max-zoom (z7) pixels.
+  let cx=36*TILE, cy=23.5*TILE;
+  const map=document.getElementById("map");
+  const status=document.getElementById("status");
+  let dragging=false,lastX=0,lastY=0;
+  const cache=new Map();
+
+  function layer(){return layers[layerName]}
+  function viewScale(){return 2 ** (zoom-LOGICAL_MAX)}
+  function nativeZoom(){return Math.min(zoom,layer().nativeMax)}
+  function nativeFactor(){return 2 ** (LOGICAL_MAX-nativeZoom())}
+  function displayTileSize(){return TILE * (2 ** (zoom-nativeZoom()))}
+
+  function validRange(z){
+    const f=2 ** (LOGICAL_MAX-z);
+    return {
+      xmin:Math.floor(cells.left/f),
+      xmax:Math.ceil(cells.right/f)-1,
+      ymin:Math.floor(cells.top/f),
+      ymax:Math.ceil(cells.bottom/f)-1
+    };
+  }
+
+  function render(){
+    const rect=map.getBoundingClientRect();
+    const nz=nativeZoom(), f=nativeFactor(), ds=displayTileSize(), vs=viewScale();
+    const leftMax=cx-rect.width/(2*vs), rightMax=cx+rect.width/(2*vs);
+    const topMax=cy-rect.height/(2*vs), bottomMax=cy+rect.height/(2*vs);
+    let xmin=Math.floor(leftMax/(TILE*f))-1, xmax=Math.floor(rightMax/(TILE*f))+1;
+    let ymin=Math.floor(topMax/(TILE*f))-1, ymax=Math.floor(bottomMax/(TILE*f))+1;
+    const vr=validRange(nz);
+    xmin=Math.max(xmin,vr.xmin); xmax=Math.min(xmax,vr.xmax);
+    ymin=Math.max(ymin,vr.ymin); ymax=Math.min(ymax,vr.ymax);
+
+    const wanted=new Set();
+    for(let y=ymin;y<=ymax;y++){
+      for(let x=xmin;x<=xmax;x++){
+        const key=`${layer().dir}/${nz}/${x}/${y}`;
+        wanted.add(key);
+        let img=cache.get(key);
+        if(!img){
+          img=new Image();
+          img.className="tile";
+          img.draggable=false;
+          img.src=`tiles/${layer().dir}/${nz}/${x}/${y}.webp`;
+          img.onerror=()=>{img.style.display="none"};
+          cache.set(key,img);
+          map.appendChild(img);
+        }
+        img.style.display="block";
+        img.style.width=ds+"px";
+        img.style.height=ds+"px";
+        const tileLeftMax=x*TILE*f, tileTopMax=y*TILE*f;
+        const sx=(tileLeftMax-cx)*vs + rect.width/2;
+        const sy=(tileTopMax-cy)*vs + rect.height/2;
+        img.style.left=Math.round(sx)+"px";
+        img.style.top=Math.round(sy)+"px";
+      }
+    }
+    for(const [key,img] of cache){
+      if(!wanted.has(key)) img.style.display="none";
+    }
+    status.textContent=`z${zoom} · source z${nz} · ${layerName}`;
+  }
+
+  function setZoom(newZoom, anchorX, anchorY){
+    const l=layer();
+    newZoom=Math.max(l.min,Math.min(9,newZoom));
+    if(newZoom===zoom)return;
+    const rect=map.getBoundingClientRect();
+    const ax=anchorX ?? rect.width/2, ay=anchorY ?? rect.height/2;
+    const oldScale=viewScale();
+    const worldX=cx+(ax-rect.width/2)/oldScale;
+    const worldY=cy+(ay-rect.height/2)/oldScale;
+    zoom=newZoom;
+    const newScale=viewScale();
+    cx=worldX-(ax-rect.width/2)/newScale;
+    cy=worldY-(ay-rect.height/2)/newScale;
+    render();
+  }
+
+  map.addEventListener("pointerdown",e=>{
+    dragging=true; lastX=e.clientX; lastY=e.clientY;
+    map.setPointerCapture(e.pointerId); map.classList.add("dragging");
+  });
+  map.addEventListener("pointermove",e=>{
+    if(!dragging)return;
+    const dx=e.clientX-lastX,dy=e.clientY-lastY; lastX=e.clientX;lastY=e.clientY;
+    const s=viewScale(); cx-=dx/s;cy-=dy/s;render();
+  });
+  map.addEventListener("pointerup",e=>{dragging=false;map.classList.remove("dragging")});
+  map.addEventListener("pointercancel",e=>{dragging=false;map.classList.remove("dragging")});
+  map.addEventListener("wheel",e=>{
+    e.preventDefault();
+    const r=map.getBoundingClientRect();
+    setZoom(zoom+(e.deltaY<0?1:-1), e.clientX-r.left, e.clientY-r.top);
+  },{passive:false});
+
+  document.getElementById("plus").onclick=()=>setZoom(zoom+1);
+  document.getElementById("minus").onclick=()=>setZoom(zoom-1);
+  document.getElementById("terrain").onclick=()=>{
+    layerName="terrain"; zoom=Math.max(zoom,layers.terrain.min);
+    document.getElementById("terrain").classList.add("active");
+    document.getElementById("worldmap").classList.remove("active");
+    render();
+  };
+  document.getElementById("worldmap").onclick=()=>{
+    layerName="worldmap"; zoom=Math.max(zoom,layers.worldmap.min);
+    document.getElementById("worldmap").classList.add("active");
+    document.getElementById("terrain").classList.remove("active");
+    render();
+  };
+  window.addEventListener("resize",render);
+  render();
+})();
+</script>
+</body>
+</html>

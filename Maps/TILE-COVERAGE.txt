@@ -1,0 +1,11 @@
+Couverture UNIQUE réellement extraite du HAR
+
+world      z3:   12 tuiles | x 0..4 | y 0..2
+world      z4:   35 tuiles | x 0..8 | y 0..5
+world      z5:  116 tuiles | x 0..17 | y 0..10
+world      z6:  206 tuiles | x 2..34 | y 1..22
+world      z7:  206 tuiles | x 8..68 | y 3..39
+worldmap   z2:   12 tuiles | x -1..2 | y -1..1
+worldmap   z3:   26 tuiles | x -1..5 | y 0..3
+worldmap   z4:   46 tuiles | x 4..10 | y -1..6
+worldmap   z5:   93 tuiles | x 11..20 | y 0..11

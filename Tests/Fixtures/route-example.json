@@ -1,0 +1,604 @@
+{
+  "name": "Goldshire → Sentinel Hill → Moonbrook",
+  "description": "Trajet extérieur réaliste tracé sur les vraies tuiles Terrain du ZIP WoWForeverMap.",
+  "mapID": 0,
+  "projection": "WoWForeverMap world-MqTemErK.js / Azeroth CRS.Simple",
+  "offset": {
+    "x": 26,
+    "y": -18
+  },
+  "points": [
+    {
+      "mapID": 0,
+      "x": -9463,
+      "y": 16,
+      "sourcePixel": [
+        2032.64,
+        892.48
+      ],
+      "t": 0.0,
+      "mode": 0,
+      "breakBefore": false,
+      "label": "Aubergiste Farley - Goldshire",
+      "kind": "poi",
+      "zone": "Forêt d’Elwynn"
+    },
+    {
+      "mapID": 0,
+      "x": -9476.042,
+      "y": 55.208,
+      "sourcePixel": [
+        1995,
+        905
+      ],
+      "t": 5.903,
+      "mode": 0,
+      "breakBefore": false,
+      "zone": "Forêt d’Elwynn"
+    },
+    {
+      "mapID": 0,
+      "x": -9483.333,
+      "y": 83.333,
+      "sourcePixel": [
+        1968,
+        912
+      ],
+      "t": 10.054,
+      "mode": 0,
+      "breakBefore": false,
+      "zone": "Forêt d’Elwynn"
+    },
+    {
+      "mapID": 0,
+      "x": -9533.333,
+      "y": 164.583,
+      "sourcePixel": [
+        1890,
+        960
+      ],
+      "t": 16.868,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Forêt d’Elwynn"
+    },
+    {
+      "mapID": 0,
+      "x": -9595.833,
+      "y": 227.083,
+      "sourcePixel": [
+        1830,
+        1020
+      ],
+      "t": 23.181,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Forêt d’Elwynn"
+    },
+    {
+      "mapID": 0,
+      "x": -9658.333,
+      "y": 300.0,
+      "sourcePixel": [
+        1760,
+        1080
+      ],
+      "t": 30.041,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Forêt d’Elwynn"
+    },
+    {
+      "mapID": 0,
+      "x": -9710.417,
+      "y": 383.333,
+      "sourcePixel": [
+        1680,
+        1130
+      ],
+      "t": 37.061,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Forêt d’Elwynn"
+    },
+    {
+      "mapID": 0,
+      "x": -9752.083,
+      "y": 466.667,
+      "sourcePixel": [
+        1600,
+        1170
+      ],
+      "t": 43.716,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Forêt d’Elwynn"
+    },
+    {
+      "mapID": 0,
+      "x": -9772.917,
+      "y": 560.417,
+      "sourcePixel": [
+        1510,
+        1190
+      ],
+      "t": 50.575,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Forêt d’Elwynn"
+    },
+    {
+      "mapID": 0,
+      "x": -9767.708,
+      "y": 643.75,
+      "sourcePixel": [
+        1430,
+        1185
+      ],
+      "t": 56.539,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Forêt d’Elwynn"
+    },
+    {
+      "mapID": 0,
+      "x": -9752.083,
+      "y": 716.667,
+      "sourcePixel": [
+        1360,
+        1170
+      ],
+      "t": 61.866,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Forêt d’Elwynn"
+    },
+    {
+      "mapID": 0,
+      "x": -9772.917,
+      "y": 779.167,
+      "sourcePixel": [
+        1300,
+        1190
+      ],
+      "t": 66.572,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Forêt d’Elwynn"
+    },
+    {
+      "mapID": 0,
+      "x": -9793.75,
+      "y": 800.0,
+      "sourcePixel": [
+        1280,
+        1210
+      ],
+      "t": 68.676,
+      "mode": 1,
+      "breakBefore": false,
+      "label": "Pont Elwynn → Marche de l’Ouest",
+      "kind": "border",
+      "zone": "Forêt d’Elwynn"
+    },
+    {
+      "mapID": 0,
+      "x": -9835.417,
+      "y": 862.5,
+      "sourcePixel": [
+        1220,
+        1250
+      ],
+      "t": 74.042,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -9887.5,
+      "y": 904.167,
+      "sourcePixel": [
+        1180,
+        1300
+      ],
+      "t": 78.806,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -9939.583,
+      "y": 945.833,
+      "sourcePixel": [
+        1140,
+        1350
+      ],
+      "t": 83.57,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -9991.667,
+      "y": 987.5,
+      "sourcePixel": [
+        1100,
+        1400
+      ],
+      "t": 88.334,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10075.0,
+      "y": 997.917,
+      "sourcePixel": [
+        1090,
+        1480
+      ],
+      "t": 94.333,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10158.333,
+      "y": 992.708,
+      "sourcePixel": [
+        1095,
+        1560
+      ],
+      "t": 100.297,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10241.667,
+      "y": 987.5,
+      "sourcePixel": [
+        1100,
+        1640
+      ],
+      "t": 106.261,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10325.0,
+      "y": 982.292,
+      "sourcePixel": [
+        1105,
+        1720
+      ],
+      "t": 112.225,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10408.333,
+      "y": 977.083,
+      "sourcePixel": [
+        1110,
+        1800
+      ],
+      "t": 118.189,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10481.25,
+      "y": 997.917,
+      "sourcePixel": [
+        1090,
+        1870
+      ],
+      "t": 123.606,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10509,
+      "y": 1045,
+      "sourcePixel": [
+        1044.8,
+        1896.64
+      ],
+      "t": 131.413,
+      "mode": 0,
+      "breakBefore": false,
+      "label": "Gryan Stoutmantle - Colline des Sentinelles",
+      "kind": "poi",
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10564.583,
+      "y": 1060.417,
+      "sourcePixel": [
+        1030,
+        1950
+      ],
+      "t": 139.653,
+      "mode": 0,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10628,
+      "y": 1037,
+      "sourcePixel": [
+        1052.48,
+        2010.88
+      ],
+      "t": 149.311,
+      "mode": 0,
+      "breakBefore": false,
+      "label": "Thor - Maître des griffons",
+      "kind": "poi",
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10637.5,
+      "y": 1091.667,
+      "sourcePixel": [
+        1000,
+        2020
+      ],
+      "t": 157.237,
+      "mode": 0,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10653,
+      "y": 1167,
+      "sourcePixel": [
+        927.68,
+        2034.88
+      ],
+      "t": 168.225,
+      "mode": 0,
+      "breakBefore": false,
+      "label": "Aubergiste Heather",
+      "kind": "poi",
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10653,
+      "y": 1167,
+      "sourcePixel": [
+        927.68,
+        2034.88
+      ],
+      "t": 188.225,
+      "mode": 0,
+      "breakBefore": false,
+      "protectedHold": true,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10663.542,
+      "y": 1112.5,
+      "sourcePixel": [
+        980,
+        2045
+      ],
+      "t": 196.155,
+      "mode": 0,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10628,
+      "y": 1037,
+      "sourcePixel": [
+        1052.48,
+        2010.88
+      ],
+      "t": 208.076,
+      "mode": 0,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10668.75,
+      "y": 1003.125,
+      "sourcePixel": [
+        1085,
+        2050
+      ],
+      "t": 215.646,
+      "mode": 0,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10752.083,
+      "y": 1003.125,
+      "sourcePixel": [
+        1085,
+        2130
+      ],
+      "t": 221.598,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10835.417,
+      "y": 1008.333,
+      "sourcePixel": [
+        1080,
+        2210
+      ],
+      "t": 227.562,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10897.917,
+      "y": 1003.125,
+      "sourcePixel": [
+        1085,
+        2270
+      ],
+      "t": 232.042,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10918.75,
+      "y": 1081.25,
+      "sourcePixel": [
+        1010,
+        2290
+      ],
+      "t": 237.818,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10929.167,
+      "y": 1164.583,
+      "sourcePixel": [
+        930,
+        2300
+      ],
+      "t": 243.816,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10918.75,
+      "y": 1247.917,
+      "sourcePixel": [
+        850,
+        2290
+      ],
+      "t": 249.815,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10908.333,
+      "y": 1341.667,
+      "sourcePixel": [
+        760,
+        2280
+      ],
+      "t": 256.553,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10929.167,
+      "y": 1425.0,
+      "sourcePixel": [
+        680,
+        2300
+      ],
+      "t": 262.688,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -10970.833,
+      "y": 1487.5,
+      "sourcePixel": [
+        620,
+        2340
+      ],
+      "t": 268.054,
+      "mode": 1,
+      "breakBefore": false,
+      "zone": "Marche de l’Ouest"
+    },
+    {
+      "mapID": 0,
+      "x": -11017,
+      "y": 1517,
+      "sourcePixel": [
+        591.68,
+        2384.32
+      ],
+      "t": 271.967,
+      "mode": 1,
+      "breakBefore": false,
+      "label": "Moonbrook",
+      "kind": "poi",
+      "zone": "Marche de l’Ouest"
+    }
+  ],
+  "duration": 271.967,
+  "checkpoints": [
+    {
+      "index": 0,
+      "label": "Aubergiste Farley - Goldshire",
+      "kind": "poi"
+    },
+    {
+      "index": 12,
+      "label": "Pont Elwynn → Marche de l’Ouest",
+      "kind": "border"
+    },
+    {
+      "index": 23,
+      "label": "Gryan Stoutmantle - Colline des Sentinelles",
+      "kind": "poi"
+    },
+    {
+      "index": 25,
+      "label": "Thor - Maître des griffons",
+      "kind": "poi"
+    },
+    {
+      "index": 27,
+      "label": "Aubergiste Heather",
+      "kind": "poi"
+    },
+    {
+      "index": 41,
+      "label": "Moonbrook",
+      "kind": "poi"
+    }
+  ]
+}

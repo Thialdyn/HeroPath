@@ -1,0 +1,16 @@
+## Interface: 120100, 120105, 16001
+## Title: Hero’sPath
+## Notes: Records player movement and exposes a read-only integration API.
+## Author: Darwyn
+## Version: 1.0.0
+## X-HeroPath-Schema: 1
+## X-HeroPath-API: 1
+## SavedVariablesPerCharacter: HeroPathDB
+
+Contract.lua
+DataModel.lua
+Bootstrap.lua
+Metadata.lua
+HeroPath.lua
+API.lua
+Diagnostics.lua
