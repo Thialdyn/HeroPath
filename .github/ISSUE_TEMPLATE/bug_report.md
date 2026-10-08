@@ -1,20 +1,25 @@
 ---
-name: Rapport de bug
-description: Signaler un problème reproductible sans données personnelles.
+name: Bug report
+description: Report a reproducible problem.
 labels: [bug]
 ---
 
-## Environnement
-- Client et version :
-- Hero’sPath version :
-- Schéma SavedVariables :
+## Environment
 
-## Étapes de reproduction
+- WoW client and version:
+- Hero'sPath version:
+- SavedVariables schema:
 
-## Résultat observé / résultat attendu
+## Steps to reproduce
 
-## Diagnostics (`/hp check`, sans noms ni coordonnées privées)
+## Expected behavior
 
-## Impact et fréquence
+## Actual behavior
 
-## Fichiers minimaux pour reproduire (anonymisés)
+## Diagnostics
+
+Paste `/hp check` output if useful. Remove character names or private coordinates first.
+
+## Frequency
+
+## Minimal files or data needed to reproduce

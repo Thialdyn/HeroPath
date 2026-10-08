@@ -1,27 +1,31 @@
-# Proposition d’intégration - Azeroth Fieldbook
+# Azeroth Fieldbook integration proposal
 
-## Objectif
+## Goal
 
-Utiliser Hero’sPath comme fournisseur optionnel de trail pour Adventurer’s Annals sans fusionner les deux modèles internes.
+Use Hero'sPath as an optional trail provider for Adventurer's Annals without merging the internal data models of both addons.
 
-## Architecture proposée
+## Proposed shape
 
 ```text
 Azeroth Fieldbook
-  └─ Annals TrailProvider
-       ├─ provider natif
-       └─ HeroPath provider → HeroPathAPI
+  -> Annals TrailProvider
+       -> native provider
+       -> optional HeroPath provider -> HeroPathAPI
 ```
 
-Fieldbook conserve son UI, ses statistiques, ses quêtes et ses journaux. Hero’sPath fournit la géométrie, les modes de déplacement, les transitions et les contextes cartographiques.
+Fieldbook keeps ownership of its UI, statistics, quests, and journals.
 
-## Première PR recommandée
+Hero'sPath provides movement geometry, movement states, travel transitions, and map context.
 
-- petite interface `TrailProvider` ;
-- détection optionnelle de `HeroPathAPI` ;
-- aucun accès direct à `HeroPathDB` ;
-- fallback vers le provider natif ;
-- tests absence/incompatibilité/read-only ;
-- benchmark avant/après.
+## Suggested first PR
 
-Les transitions corrélées et contextes cartographiques peuvent être consommés dans une étape séparée afin de garder une PR initiale facile à relire.
+Keep the first change small:
+
+- add a small `TrailProvider` interface
+- detect `HeroPathAPI` only when available
+- never read `HeroPathDB` directly
+- fall back to the native provider
+- test missing, incompatible, and read-only providers
+- compare CPU and memory use before and after
+
+Correlated transitions and map context can be added in a later change. This keeps the first review focused.

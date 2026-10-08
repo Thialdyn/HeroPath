@@ -1,17 +1,17 @@
 ---
-name: Proposition de fonctionnalité
-description: Proposer une amélioration mesurable, sans casser le contrat public.
+name: Feature request
+description: Suggest a focused improvement.
 labels: [enhancement]
 ---
 
-## Problème utilisateur
+## Problem
 
-## Comportement attendu
+## Expected behavior
 
-## Cas limites / situations en jeu
+## Edge cases
 
-## Impact possible sur collecte, stockage et performances
+## Possible impact on collection, storage, or performance
 
-## Compatibilité API / SavedVariables (ou « aucun changement »)
+## API or SavedVariables impact
 
-## Critères d'acceptation et scénarios de test
+## Acceptance criteria

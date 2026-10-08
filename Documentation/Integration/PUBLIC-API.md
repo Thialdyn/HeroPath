@@ -1,8 +1,10 @@
-# API publique Hero’sPath
+# Public API
 
-Hero’sPath expose `_G.HeroPathAPI`. Un consommateur ne doit jamais lire ou modifier directement `HeroPathDB`.
+Hero'sPath exposes `_G.HeroPathAPI`.
 
-## Méthodes
+External addons should not read or modify `HeroPathDB` directly.
+
+## Methods
 
 - `GetAPIVersion()`
 - `GetVersion()`
@@ -17,4 +19,4 @@ Hero’sPath expose `_G.HeroPathAPI`. Un consommateur ne doit jamais lire ou mod
 - `GetExportSnapshot()`
 - `DecodeChunk(chunk)`
 
-La version d’API et le schéma de stockage sont deux contrats distincts.
+The public API version and the SavedVariables schema are separate contracts.

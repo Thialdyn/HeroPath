@@ -1,14 +1,17 @@
-## Motivation / portée
+## What changed
 
-## Invariants conservés
-- [ ] Collecte à 4 Hz inchangée (sauf évolution explicitement justifiée)
-- [ ] Coordonnées monde : pas de conversion implicite vers un espace local
-- [ ] Causalité : aucun trajet ni transport supposé sans preuve
-- [ ] Données persistantes préservées ; toute évolution de schéma est explicitement documentée et testée
-- [ ] API publique explicitement versionnée en cas de rupture
+## Why
 
-## Tests ajoutés / exécutés
+## Collector invariants
 
-## Mesures performance CPU, mémoire et SavedVariables (si pertinent)
+- [ ] 4 Hz collection rate is unchanged, unless this PR explains why it should change
+- [ ] World coordinates stay in world space
+- [ ] No transport or path is inferred without enough evidence
+- [ ] Persistent data changes are documented and tested
+- [ ] Public API changes are versioned when required
 
-## Risques et retour arrière
+## Tests
+
+## Performance impact
+
+## Risks

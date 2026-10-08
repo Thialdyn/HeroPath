@@ -1,7 +1,20 @@
-# Contribuer à Hero’sPath
+# Contributing
 
-Une modification du collecteur doit avoir une responsabilité claire, un invariant explicite et un test de régression. Les seuils métier appartiennent à `Contract.lua`. Les données externes passent par `Bootstrap.lua`. La logique pure de format reste dans `DataModel.lua`. Les contextes/transitions et la compatibilité de schéma appartiennent à `Metadata.lua`. `HeroPath.lua` orchestre la machine d'état. Les consommateurs externes utilisent uniquement `HeroPathAPI`.
+Changes to the collector should have a clear responsibility and a regression test.
 
-Avant une PR : exécuter `Tests/Collector/run-release-tests.sh`, les tests Release concernés, puis les stress-tests lorsque la collecte, la compaction ou la récupération changent. Ne jamais déduire un moyen de transport lorsque le client ne fournit pas assez de preuves. Une donnée incertaine doit devenir inconnue ou créer une rupture, jamais une fausse continuité.
+A few rules keep the codebase predictable:
 
-Les commentaires doivent expliquer une décision, un invariant ou une limite du client ; ils ne doivent pas paraphraser le code. Éviter les abstractions sans propriétaire, les helpers génériques non testés et les valeurs métier enfouies dans la machine d'état.
+- Gameplay thresholds belong in `Contract.lua`.
+- WoW API access belongs in `Bootstrap.lua`.
+- Pure validation and encoding belong in `DataModel.lua`.
+- Map context and travel transitions belong in `Metadata.lua`.
+- `HeroPath.lua` owns the collector state machine.
+- External addons should use `HeroPathAPI` instead of internal tables.
+
+Before opening a pull request, run `Tests/Collector/run-release-tests.sh`.
+
+Run the stress tests when changing sampling, compaction, recovery, or long-session behavior.
+
+Do not guess a transport type when the client does not provide enough evidence. Unknown data should stay unknown instead of creating a false path.
+
+Comments should explain decisions, invariants, or client limitations. They should not repeat what the code already says.

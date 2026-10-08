@@ -1,18 +1,28 @@
-# Contrat d’intégration pour un projet hôte
+# Host integration contract
 
-## Principe
+Hero'sPath integration should stay optional.
 
-L’intégration doit rester optionnelle : l’hôte détecte `_G.HeroPathAPI`, vérifie `GetAPIVersion() == 1`, puis utilise Hero’sPath comme fournisseur de télémétrie lorsque disponible. Il ne dépend pas des tables internes du collecteur.
+A host addon checks `_G.HeroPathAPI`, verifies `GetAPIVersion() == 1`, then uses the API only when it is available and compatible.
 
-## Frontières
+## Rules
 
-- Hero’sPath reste l’unique propriétaire de son ticker 4 Hz et de `HeroPathDB` ;
-- l’hôte évite un second tracker de position équivalent lorsque Hero’sPath fournit le trail ;
-- les snapshots exportés sont traités comme des données en lecture seule ;
-- le schéma de stockage ne sert jamais de version d’API ;
-- `positionKnown=0` interdit de dessiner un segment continu vers l’endpoint concerné ;
-- l’hôte garde la responsabilité de son UI, de ses filtres et de ses statistiques.
+- Hero'sPath owns its 4 Hz ticker and `HeroPathDB`.
+- A host should avoid running a second equivalent position tracker when Hero'sPath already provides the trail.
+- Export snapshots are read-only data.
+- The storage schema is not the public API version.
+- `positionKnown = 0` means the host must not draw a continuous line to that endpoint.
+- The host keeps ownership of its own UI, filters, and statistics.
 
-## Tests attendus côté hôte
+## Host-side tests
 
-Absence du fournisseur, version API incompatible, archive read-only, export vide, multi-personnages, monde inconnu, API restreinte, sauvegarde/rechargement, et benchmark CPU/mémoire avec et sans fournisseur.
+A host integration should cover:
+
+- provider missing
+- incompatible API version
+- read-only archive mode
+- empty export
+- multiple characters
+- unknown world
+- restricted API values
+- save and reload
+- CPU and memory comparison with and without the provider
